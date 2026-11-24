@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#07071a">
+<title>Pac-Pen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="cabinet">
+  <header class="hud">
+    <div class="stat"><span class="label">Score</span><span id="score">0</span></div>
+    <div class="stat"><span class="label">High</span><span id="high">0</span></div>
+    <div class="stat"><span class="label">Level</span><span id="level">1</span></div>
+    <div class="stat"><span class="label">Lives</span><span id="lives">♥♥♥♥♥</span></div>
+    <button id="mute" class="icon-btn" aria-label="Toggle sound" title="Mute (M)">🔊</button>
+  </header>
+
+  <div class="screen">
+    <canvas id="game" width="912" height="1008"></canvas>
+    <div id="net" class="net" aria-live="polite"></div>
+    <div id="select" class="overlay">
+      <h1>Pac-Pen</h1>
+      <p id="sel-sub">Choose your character</p>
+      <div id="chars" class="chars" role="radiogroup" aria-label="Character"></div>
+      <p id="sel-msg" class="msg" role="status"></p>
+      <button id="join" class="primary" disabled>Join</button>
+      <p class="hint">Arrow keys / WASD, swipe, or the D-pad</p>
+    </div>
+    <div id="overlay" class="overlay hidden">
+      <h1 id="ov-title">Pac-Pen</h1>
+      <p id="ov-text">Collect every pen. Grab a Super Pen to turn the ghosts blue.<br>Arrow keys / WASD, swipe, or the D-pad.</p>
+      <button id="ov-btn" class="primary">Start</button>
+    </div>
+  </div>
+
+  <div class="dpad" aria-label="Directional pad">
+    <button data-dir="up" aria-label="Up">▲</button>
+    <button data-dir="left" aria-label="Left">◀</button>
+    <button data-dir="right" aria-label="Right">▶</button>
+    <button data-dir="down" aria-label="Down">▼</button>
+  </div>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
